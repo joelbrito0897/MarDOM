@@ -1,0 +1,72 @@
+﻿@*@model Model.MovementArticle*@
+@{
+    ViewData["Title"] = "Movement";
+}
+<script src="~/js/Article/Movement.js"></script>
+<h1>Movement</h1>
+
+
+<div class="bg-contact2" ">
+    <div class="container-contact2">
+        <div class="wrap-contact2">
+            <form class="contact2-form validate-form">
+                <div class="form-group d-flex flex-row-reverse">
+                    <input type="button" value="Agregar" id="btnAdd" disabled class="btn btn-primary" onclick="isAllowToInsert()"/>
+                </div>
+                <div class="wrap-input2 validate-input" >
+                    <span class="focus-input2" data-placeholder="Tipo de Movimiento"></span>
+                    <br />
+                    <select id="movementType" class="form-control">
+                        <option value="0">Entrada</option>
+                        <option value="1">Salida</option>
+                    </select>
+                </div>
+                <div class="wrap-input2 validate-input" data-validate="El almacen es requerido.">
+                    <span class="focus-input2" data-placeholder="Almacen"></span>
+                    <br />
+                    <select id="warehouse" class="form-control">
+                        <option value="">Seleccione el Almacen.</option>
+                    </select>
+                </div>
+                <div class="wrap-input2 validate-input" data-validate="El articulo es requerido.">
+                    <span class="focus-input2" data-placeholder="Articulos"></span>
+                    <br />
+                    <select id="articles" class="form-control">
+                        <option value="">Seleccione el Articulo</option>
+                    </select>
+                </div>
+                <div class="my-4"></div>
+                <div class="wrap-input2 validate-input" data-validate="La cantidad es requerida.">
+                    <input class="input2" type="number" name="quantity" id="quantity">
+                    <span class="focus-input2" data-placeholder="Cantidad"></span>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+@*<div class="col-md-10">
+    <select asp-for="Type" asp-items="Html.GetEnumSelectList<MoveType>()">
+        <option selected="selected" value="">Please select</option>
+    </select>
+    <span asp-validation-for="Type" class="text-danger" />
+</div>*@
+
+<!--
+    -DropDown select warehouse
+        -Verify quantity available
+
+    -Select typeMovement | In - Out
+    if In
+        -select product and specific de quantity not more that quantity available of warehouse
+        -update de quantity in warehouse
+    If Out
+        -
+
+
+
+-->

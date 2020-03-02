@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+    <script src="~/js/Report/Report.js"></script>
+
+<h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Reportes.</h2>
+<hr />
+
+<div class="accordion container" id="accordionExample">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link create" type="button" data-toggle="collapse" data-target="#warehouses" aria-expanded="true" aria-controls="warehouses">
+                    Por Almacen:
+                </button>
+            </h2>
+        </div>
+
+        <div id="warehouses" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                
+                <div class="wrap-input2 validate-input">
+                    <span class="focus-input2" data-placeholder="Almacen"></span>
+                    <br />
+                    <select id="warehouse" class="form-control">
+                    </select>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <button class="create" onclick="reportForWarehouse()">Ver Reporte</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed create" type="button" data-toggle="collapse" data-target="#inout" aria-expanded="false" aria-controls="inout">
+                    Entrada / Salida
+                </button>
+            </h2>
+        </div>
+        <div id="inout" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+                <div class="wrap-input2 validate-input">
+                    <span class="focus-input2" data-placeholder="Tipo de Movimiento"></span>
+                    <br />
+                    <select id="movementType" class="form-control">
+                        <option value="0">Entrada</option>
+                        <option value="1">Salida</option>
+                    </select>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <button class="create" onclick="reportForInOut()">Ver Reporte</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

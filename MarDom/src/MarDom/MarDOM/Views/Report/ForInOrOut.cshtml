@@ -1,0 +1,115 @@
+﻿@model IEnumerable<Model.MovementArticle>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Reporte por entrada salida.</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+
+        <div>
+            <h1 class="page-section-heading text-center text-uppercase text-secondary mb-0">MarDOM</h1>
+            <hr />
+            <h3 class="page-section-heading text-center text-uppercase text-secondary mb-0">Movimiento Por Entrada o Salida</h3>
+            <div class="">
+                <div class="row my-3">
+                    <div class="col d-flex justify-content-center">
+                        <div class="input-group mb-3" style="width:300px">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">Tipo de movimiento</span>
+                            </div>
+
+                            <label class="form-control">
+
+                                @if (Model.Count() > 0)
+                                {
+                                    @Model.First().InOut
+                                }
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col d-flex justify-content-center">
+                        <div class="input-group mb-3" style="width:300px">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">Fecha</span>
+                            </div>
+                            <label class="form-control">@DateTime.Now.ToString("dd/MM/yyyy")</label>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.First().MovementArticleDetails.Article.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.First().MovementArticleDetails.Article.Price)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.First().MovementArticleDetails.Article.Category)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.First().Warehouse.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.First().CreateAt)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MovementArticleDetails.Article.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MovementArticleDetails.Article.Price)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MovementArticleDetails.Article.Category.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Warehouse.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreateAt)
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                <hr />
+
+                <div class="row my-3">
+                    <div class="col d-flex justify-content-end">
+                        <div class="input-group mb-3" style="width:300px">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">Cantidad de movimientos:</span>
+                            </div>
+                            <label class="form-control">@Model.Count()</label>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+</body>
+</html>

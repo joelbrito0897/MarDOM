@@ -1,0 +1,114 @@
+﻿@model ReflectionIT.Mvc.Paging.IPagingList
+
+
+@{
+    var start = this.Model.StartPageIndex;
+    var stop = this.Model.StopPageIndex;
+}
+
+@if (this.Model.PageCount > 1)
+{
+    <ul class="pager">
+
+        @*@if (start > 1)
+        {
+            <li class="pager__item pager__item--prev">
+                <a href="@Url.Action(Model.Action, Model.GetRouteValueForPage(1))" aria-label="First" class="pager__link">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        }*@
+
+        @if (this.Model.PageIndex > 1)
+        {
+            <li class="pager__item">
+                <a href="@Url.Action(Model.Action, Model.GetRouteValueForPage(this.Model.PageIndex - 1))" aria-label="Previous" class="pager__link">
+                    <span aria-hidden="true"><i class="fas fa-arrow-circle-left"></i></span>
+                </a>
+            </li>
+        }
+
+        @for (int i = start; i <= stop; i++)
+        {
+    <li class="pager__item @((Model.PageIndex == i) ? "active" : null)">
+        @Html.ActionLink(i.ToString(), Model.Action, Model.GetRouteValueForPage(i), new { @class = "pager__link" })
+    </li>
+        }
+
+        @if (this.Model.PageIndex < this.Model.PageCount)
+        {
+            <li class="pager__item">
+                <a href="@Url.Action(Model.Action, Model.GetRouteValueForPage(this.Model.PageIndex + 1))" aria-label="Next" class="pager__link">
+                    <span aria-hidden="true"><i class="fas fa-arrow-circle-right"></i></span>
+                </a>
+            </li>
+        }
+
+        @*@if (stop < this.Model.PageCount)
+        {
+            <li class="pager__item pager__item--next">
+                <a href="@Url.Action(Model.Action, Model.GetRouteValueForPage(this.Model.PageCount))" aria-label="Last" class="pager__link">
+                    <span aria-hidden="true">&raquo</span>
+                </a>
+            </li>
+        }*@
+
+    </ul>
+}
+
+<style>
+    .pager {
+  margin: 0 0 3.75rem;
+  font-size: 0;
+  text-align: center;
+}
+.pager__item {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin: 0 2px;
+}
+.pager__item.active .pager__link {
+  background-color: #1abc9c;
+  border-color: #1abc9c;
+  color: #fff;
+  text-decoration: none;
+}
+.pager__item--prev svg, .pager__item--next svg {
+  width: 8px;
+  height: 12px;
+}
+.pager__item--next .pager__link svg {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+.pager__link {
+  position: relative;
+  border-radius: 4px;
+  display: block;
+  text-align: center;
+  width: 2.625rem;
+  height: 2.625rem;
+  line-height: 2.625rem;
+  margin-left: -1px;
+  color: #2f3640;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.pager__link:hover, .pager__link:focus, .pager__link:active {
+  background-color: #1abc9c;
+  border-color: #1abc9c;
+  color: #fff;
+  text-decoration: none;
+}
+.pager__link:hover svg path, .pager__link:focus svg path, .pager__link:active svg path {
+  fill: #fff;
+}
+.pager .pager__item.active + .pager__item .pager__link, .pager .pager__item:hover + .pager__item .pager__link {
+  border-left-color: #ffb74d;
+}
+
+</style>
