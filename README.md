@@ -2,33 +2,33 @@
 
 Link: http://joelbrito0897-001-site1.etempurl.com/
 
-_El projecto consiste, en un sistema de gestion de articulos, donde se pueden crear almacenes, categorias de articulos, articulos, y a estos articulos se le puede dar entrada o salida a un almacen en especifico.
+El projecto consiste, en un sistema de gestion de articulos, donde se pueden crear almacenes, categorias de articulos, articulos, y a estos articulos se le puede dar entrada o salida a un almacen en especifico.
 
-_Los almacenes tienen un limite de articulos el cual incrementa o desincrementa segun se le de entrada o salida.
+Los almacenes tienen un limite de articulos el cual incrementa o desincrementa segun se le de entrada o salida.
 
-_Tambien se puede ver reporte de movimientos de articulos, ya se por almacen o por tipo de movimiento.
+Tambien se puede ver reporte de movimientos de articulos, ya se por almacen o por tipo de movimiento.
 
 # Tecnologias Utilizadas
-_-C#.
+-C#.
 
-_-.NET Core.
+-.NET Core.
 
-_-EntityFramework.
+-EntityFramework.
 
-_-Linq.
+-Linq.
 
-_-JavaScript.
+-JavaScript.
 
-_-JQuery.
+-JQuery.
 
-_-SqlServer.
+-SqlServer.
 
 # Pasos para iniciar el proyectos;
-_1.Descargar el proyecto.
+1.Descargar el proyecto.
 
-_2.Adaptar el connectionString a su instancia de sql en el AppSetting.
+2.Adaptar el connectionString a su instancia de sql en el AppSetting.
 
-_3.Ejecutar el comando update-database para que se genere la base de datos y sus respectivas tablas.
+3.Ejecutar el comando update-database para que se genere la base de datos y sus respectivas tablas.
 
 
-_Con esto ya solo debe de ejecutar su proyecto y comenzar a utilizarlo.
+Con esto ya solo debe de ejecutar su proyecto y comenzar a utilizarlo.
